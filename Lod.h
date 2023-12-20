@@ -1,12 +1,12 @@
-#ifndef LODKA_H_INCLUDED
-#define LODKA_H_INCLUDED
+#ifndef Lod_H_INCLUDED
+#define Lod_H_INCLUDED
 #include "Path.h"
 #include <map>
 
-class Lodka : public Path
+class Lod : public Path
 {
 public:
-    Lodka(TerrainMap &m, const Point &startIn, const Point &finishIn);
+    Lod(TerrainMap &m, const Point &startIn, const Point &finishIn);
     bool find() override;
 
 private:
@@ -15,4 +15,4 @@ private:
     void reconstructPath(const std::map<Point, Point> &predecessor);
 };
 
-#endif // LODKA_H_INCLUDED
+#endif // Lod_H_INCLUDED

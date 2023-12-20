@@ -6,10 +6,10 @@
 #include <map>
 #include <cmath>
 
-Lodka::Lodka(TerrainMap &m, const Point &startIn, const Point &finishIn)
-    : Path(m, "Lodka", startIn, finishIn) {}
+Lod::Lod(TerrainMap &m, const Point &startIn, const Point &finishIn)
+    : Path(m, "Lod", startIn, finishIn) {}
 
-bool Lodka::find()
+bool Lod::find()
 {
     std::queue<Point> queue;
     std::set<Point> visited;
@@ -46,7 +46,7 @@ bool Lodka::find()
     return false;
 }
 
-std::vector<std::pair<Point, double>> Lodka::findNeighbor(const Point &current)
+std::vector<std::pair<Point, double>> Lod::findNeighbor(const Point &current)
 {
     Point neighbor;
     std::vector<std::pair<Point, double>> neighbors;
@@ -67,12 +67,12 @@ std::vector<std::pair<Point, double>> Lodka::findNeighbor(const Point &current)
     return neighbors;
 }
 
-bool Lodka::isValidMove(const Point &referencePoint)
+bool Lod::isValidMove(const Point &referencePoint)
 {
     return (map.validCoords(referencePoint) && (map.alt(referencePoint) < 0 || referencePoint == finish)) ? true : false;
 }
 
-void Lodka::reconstructPath(const std::map<Point, Point> &predecessor)
+void Lod::reconstructPath(const std::map<Point, Point> &predecessor)
 {
     Point current = finish;
 
